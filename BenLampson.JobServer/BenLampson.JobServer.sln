@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.Server", "BenLampson.JobServer.Server\BenLampson.JobServer.Server.csproj", "{91584E93-7BE8-4078-8F2D-C7B68C10E793}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.Client", "BenLampson.JobServer.Client\BenLampson.JobServer.Client.csproj", "{8225FFF3-AD82-4996-9039-D344D17936BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.Interface", "BenLampson.JobServer.Interface\BenLampson.JobServer.Interface.csproj", "{36250667-D933-421B-A6C0-EC3A308EC831}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.DataRepository", "BenLampson.JobServer.DataRepository\BenLampson.JobServer.DataRepository.csproj", "{4FD94181-77BE-46A9-BC8D-FD4C3DA572C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBScript", "DBScript", "{9815D2D9-8315-4122-AB2F-43BE2EE00E07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.WinService", "BenLampson.JobServer.WinService\BenLampson.JobServer.WinService.csproj", "{50307089-9F89-4C43-A12B-F0A189D692BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.Client", "BenLampson.JobServer.Client\BenLampson.JobServer.Client.csproj", "{5542FD59-FAD3-460F-9B7E-63466D6CFB95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,6 @@ Global
 		{91584E93-7BE8-4078-8F2D-C7B68C10E793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91584E93-7BE8-4078-8F2D-C7B68C10E793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91584E93-7BE8-4078-8F2D-C7B68C10E793}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8225FFF3-AD82-4996-9039-D344D17936BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8225FFF3-AD82-4996-9039-D344D17936BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8225FFF3-AD82-4996-9039-D344D17936BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8225FFF3-AD82-4996-9039-D344D17936BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36250667-D933-421B-A6C0-EC3A308EC831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36250667-D933-421B-A6C0-EC3A308EC831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36250667-D933-421B-A6C0-EC3A308EC831}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,8 +33,19 @@ Global
 		{4FD94181-77BE-46A9-BC8D-FD4C3DA572C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FD94181-77BE-46A9-BC8D-FD4C3DA572C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FD94181-77BE-46A9-BC8D-FD4C3DA572C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50307089-9F89-4C43-A12B-F0A189D692BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50307089-9F89-4C43-A12B-F0A189D692BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50307089-9F89-4C43-A12B-F0A189D692BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50307089-9F89-4C43-A12B-F0A189D692BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EE0CEFA-FCE2-4B35-AF89-EFB6081C9C16}
 	EndGlobalSection
 EndGlobal

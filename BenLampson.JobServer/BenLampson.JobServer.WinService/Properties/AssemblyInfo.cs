@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("BenLampson.JobServer.Client")]
+[assembly: AssemblyTitle("BenLampson.JobServer.WinService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BenLampson.JobServer.Client")]
+[assembly: AssemblyProduct("BenLampson.JobServer.WinService")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("5542fd59-fad3-460f-9b7e-63466d6cfb95")]
+[assembly: Guid("50307089-9f89-4c43-a12b-f0a189d692bd")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

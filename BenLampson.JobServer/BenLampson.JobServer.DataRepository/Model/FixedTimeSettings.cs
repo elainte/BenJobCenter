@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace BenLampson.JobServer.DataRepository.Model
 {
-    public class JobDefined
+    /// <summary>
+    /// 固定时间执行
+    /// </summary>
+    public class FixedTimeSettings
     {
-        public long JDID { get; set; }
+        public DateTime TimeInDay { get; set; }
     }
 }

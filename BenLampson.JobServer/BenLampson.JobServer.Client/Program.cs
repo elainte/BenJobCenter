@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BenLampson.JobServer.Server
+namespace BenLampson.JobServer.Client
 {
-    public class ServerCenter
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }
