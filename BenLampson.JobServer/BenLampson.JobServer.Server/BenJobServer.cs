@@ -17,18 +17,36 @@ using System.Diagnostics;
 
 namespace BenLampson.JobServer.Server
 {
+    /// <summary>
+    /// Job server class 
+    /// </summary>
     public class BenJobServer
     {
+        /// <summary>
+        /// use to control all task's cancellation operation
+        /// </summary>
         CancellationTokenSource token;
+        /// <summary>
+        /// use to get data from database
+        /// </summary>
         DBManager manager;
+        /// <summary>
+        /// this dictionary save every running task.
+        /// </summary>
         ConcurrentDictionary<long, Task> runningTasks = new ConcurrentDictionary<long, Task>();
+        /// <summary>
+        /// construct method
+        /// </summary>
+        /// <param name="token"></param>
         public BenJobServer(CancellationTokenSource token)
         {
             manager = DBManager.GetInstance("conn");
             manager.PushNewServer("conn", ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
             this.token = token;
         }
-
+        /// <summary>
+        /// start service
+        /// </summary>
         public void Start()
         {
             var allJobs = manager.JobDefined_GetAll();
@@ -44,7 +62,10 @@ namespace BenLampson.JobServer.Server
 
 
 
-
+        /// <summary>
+        /// start the new job from jobdefined info
+        /// </summary>
+        /// <param name="item"></param>
         private void BeginTask(JobDefined item)
         {
             runningTasks.TryAdd(item.JDID, Task.Run(() =>
@@ -57,7 +78,7 @@ namespace BenLampson.JobServer.Server
                 {
                     case ExecutionModeEnum.Alternate:
                         var alternateSettings = item.ExecutionSettings.Json_GetObject<AlternateJobSettings>();
-                        Task.Delay(new TimeSpan(alternateSettings.IntervalHour, alternateSettings.IntervalMinute, alternateSettings.IntervalSeconds)).
+                        Task.Delay(alternateSettings.IntervalTimeSpan).
                         ContinueWith((oldTask) =>
                         {
                             BeginTask(item);
@@ -85,9 +106,6 @@ namespace BenLampson.JobServer.Server
                 var cacheKey = $"BenJob_{item.JDID}";
                 item.SaveToCache(cacheKey);
                 Process.Start(ConfigurationManager.AppSettings["ClientPath"], cacheKey);
-
-
-
             }, token.Token));
         }
     }

@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace BenLampson.JobServer.DataRepository.Model
 {
     /// <summary>
-    /// 固定时间执行
+    /// the fixed time task settings model
     /// </summary>
     public class FixedTimeSettings
     {
+        /// <summary>
+        /// Current time , in this case ,we just need HH:MM data..
+        /// </summary>
         public DateTime TimeInDay { get; set; }
     }
 }

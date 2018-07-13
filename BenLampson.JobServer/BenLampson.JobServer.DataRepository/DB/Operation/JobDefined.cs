@@ -10,16 +10,32 @@ using BenDotNet.AdoNet.Core;
 
 namespace BenLampson.JobServer.DataRepository.DB.Operation
 {
+    /// <summary>
+    /// job's mysql proc info 
+    /// </summary>
     public static class JobDefinedProc
     {
+        /// <summary>
+        /// prefix info
+        /// </summary>
         private const string PreFix = "JobDefined_";
+        /// <summary>
+        /// get all job in mysql data base
+        /// </summary>
 
         public const string GET_ALL = PreFix + "GetAllJob";
     }
 
-
+    /// <summary>
+    /// job's database operation
+    /// </summary>
     public static class JobDefinedDBOperation
     {
+        /// <summary>
+        /// get all job from mysql database
+        /// </summary>
+        /// <param name="manager"></param>
+        /// <returns></returns>
         public static List<JobDefined> JobDefined_GetAll(this DBManager manager)
         {
             var ds = manager.ExecuteDataSet(JobDefinedProc.GET_ALL);
@@ -27,8 +43,16 @@ namespace BenLampson.JobServer.DataRepository.DB.Operation
         }
     }
 
+    /// <summary>
+    /// jobdefined's class operation
+    /// </summary>
     public static class JobDefinedClassOperation
     {
+        /// <summary>
+        /// get model list from data set
+        /// </summary>
+        /// <param name="ds"></param>
+        /// <returns></returns>
         public static List<JobDefined> GetModelList(this DataSet ds)
         {
             var result = new List<JobDefined>();
@@ -40,6 +64,11 @@ namespace BenLampson.JobServer.DataRepository.DB.Operation
             return result;
         }
 
+        /// <summary>
+        /// create new jobdefined model from data row
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public static JobDefined GetModel(this DataRow item)
         {
             return new JobDefined()
