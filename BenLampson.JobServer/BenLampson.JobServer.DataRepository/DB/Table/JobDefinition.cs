@@ -11,7 +11,7 @@ namespace BenLampson.JobServer.DataRepository.DB.Table
     /// <summary>
     /// Job defined model.
     /// </summary>
-    public class JobDefined : ICanGetParameter
+    public class JobDefinition : ICanGetParameter
     {
         /// <summary>
         /// job defined's id
@@ -22,7 +22,7 @@ namespace BenLampson.JobServer.DataRepository.DB.Table
         /// </summary>
         public string Description { get; set; }
         /// <summary>
-        /// 
+        /// this property's value is the tasks job class. this class must be realization benlampson.jobserver.interface.iJobClient
         /// </summary>
         public string Target { get; set; }
         /// <summary>

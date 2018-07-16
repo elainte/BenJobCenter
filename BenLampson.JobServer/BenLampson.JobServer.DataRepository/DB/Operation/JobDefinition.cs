@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BenDotNet.AdoNet.Core;
+using BenDotNet.Core;
 
 namespace BenLampson.JobServer.DataRepository.DB.Operation
 {
@@ -18,12 +19,17 @@ namespace BenLampson.JobServer.DataRepository.DB.Operation
         /// <summary>
         /// prefix info
         /// </summary>
-        private const string PreFix = "JobDefined_";
+        private const string PreFix = "JobDefinition_";
         /// <summary>
         /// get all job in mysql data base
         /// </summary>
 
         public const string GET_ALL = PreFix + "GetAllJob";
+        /// <summary>
+        /// get all job in mysql data base
+        /// </summary>
+
+        public const string UPDATE_INFO = PreFix + "Executed";
     }
 
     /// <summary>
@@ -36,10 +42,30 @@ namespace BenLampson.JobServer.DataRepository.DB.Operation
         /// </summary>
         /// <param name="manager"></param>
         /// <returns></returns>
-        public static List<JobDefined> JobDefined_GetAll(this DBManager manager)
+        public static List<JobDefinition> JobDefinition_GetAll(this DBManager manager)
         {
             var ds = manager.ExecuteDataSet(JobDefinedProc.GET_ALL);
             return ds.GetModelList();
+        }
+        /// <summary>
+        /// update some job's database info.
+        /// </summary>
+        /// <param name="manager"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool JobDefinition_Executed(this DBManager manager, long jlid, long jdid, LTypeEnum type, string content, JobStatusEnum jobStatus, DateTime nextExecutionTime)
+        {
+            var parameters = new MySqlParameter[] {
+                 new MySqlParameter("_JDID",jdid),
+                 new MySqlParameter("_JLID",jlid),
+                 new MySqlParameter("_Type", type),
+                 new MySqlParameter("_Content",content),
+                 new MySqlParameter("_JobStatus", jobStatus),
+                 new MySqlParameter("_NextExecutionTime",nextExecutionTime)
+
+            };
+            var result = manager.ExecuteNonQuery(JobDefinedProc.UPDATE_INFO, CommandType.StoredProcedure, parameters);
+            return result == 1;
         }
     }
 
@@ -53,9 +79,9 @@ namespace BenLampson.JobServer.DataRepository.DB.Operation
         /// </summary>
         /// <param name="ds"></param>
         /// <returns></returns>
-        public static List<JobDefined> GetModelList(this DataSet ds)
+        public static List<JobDefinition> GetModelList(this DataSet ds)
         {
-            var result = new List<JobDefined>();
+            var result = new List<JobDefinition>();
             if (ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0) { return result; }
             foreach (DataRow item in ds.Tables[0].Rows)
             {
@@ -69,9 +95,9 @@ namespace BenLampson.JobServer.DataRepository.DB.Operation
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public static JobDefined GetModel(this DataRow item)
+        public static JobDefinition GetModel(this DataRow item)
         {
-            return new JobDefined()
+            return new JobDefinition()
             {
                 CreateTime = item.GetDatetime("CreateTime") == null ? DateTime.Now : item.GetDatetime("CreateTime").Value,
                 Description = item.GetString("Description"),

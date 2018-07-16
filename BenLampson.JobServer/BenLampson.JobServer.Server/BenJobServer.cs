@@ -49,7 +49,7 @@ namespace BenLampson.JobServer.Server
         /// </summary>
         public void Start()
         {
-            var allJobs = manager.JobDefined_GetAll();
+            var allJobs = manager.JobDefinition_GetAll();
             allJobs.ForEach(item =>
             {
                 if (runningTasks.ContainsKey(item.JDID))
@@ -66,7 +66,7 @@ namespace BenLampson.JobServer.Server
         /// start the new job from jobdefined info
         /// </summary>
         /// <param name="item"></param>
-        private void BeginTask(JobDefined item)
+        private void BeginTask(JobDefinition item)
         {
             runningTasks.TryAdd(item.JDID, Task.Run(() =>
             {
@@ -74,6 +74,11 @@ namespace BenLampson.JobServer.Server
                 {
                     return;
                 }
+                #region Run job first
+                var cacheKey = $"BenJob_{item.JDID}";
+                item.SaveToCache(cacheKey);
+                Process.Start(ConfigurationManager.AppSettings["ClientPath"], cacheKey);
+                #endregion
                 switch (item.ExecutionModeEnum)
                 {
                     case ExecutionModeEnum.Alternate:
@@ -98,14 +103,6 @@ namespace BenLampson.JobServer.Server
                         runningTasks.TryRemove(item.JDID, out Task t);
                         break;
                 }
-
-                if (token.IsCancellationRequested)
-                {
-                    return;
-                }
-                var cacheKey = $"BenJob_{item.JDID}";
-                item.SaveToCache(cacheKey);
-                Process.Start(ConfigurationManager.AppSettings["ClientPath"], cacheKey);
             }, token.Token));
         }
     }

@@ -55,8 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\Operation\JobDefined.cs" />
-    <Compile Include="DB\Table\JobDefined.cs" />
+    <Compile Include="DB\Operation\JobDefinition.cs" />
+    <Compile Include="DB\Table\JobDefinition.cs" />
+    <Compile Include="DB\Table\JobLog.cs" />
     <Compile Include="Model\FixedTimeSettings.cs" />
     <Compile Include="Model\AlternateJobSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
