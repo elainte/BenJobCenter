@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.WinSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenLampson.JobServer.Client", "BenLampson.JobServer.Client\BenLampson.JobServer.Client.csproj", "{5542FD59-FAD3-460F-9B7E-63466D6CFB95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z.JobDemo", "Z.JobDemo\Z.JobDemo.csproj", "{A401006E-F2E1-4A10-A009-5F59E531EEC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool.JobServerConfiguration", "Tool.JobServerConfiguration\Tool.JobServerConfiguration.csproj", "{38186897-33D3-4FED-87C7-FF53B10DA757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5542FD59-FAD3-460F-9B7E-63466D6CFB95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A401006E-F2E1-4A10-A009-5F59E531EEC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A401006E-F2E1-4A10-A009-5F59E531EEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A401006E-F2E1-4A10-A009-5F59E531EEC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A401006E-F2E1-4A10-A009-5F59E531EEC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38186897-33D3-4FED-87C7-FF53B10DA757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38186897-33D3-4FED-87C7-FF53B10DA757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38186897-33D3-4FED-87C7-FF53B10DA757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38186897-33D3-4FED-87C7-FF53B10DA757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
